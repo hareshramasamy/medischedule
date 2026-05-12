@@ -1,0 +1,80 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:        #0a0f0d;
+  --bg2:       #111812;
+  --bg3:       #182018;
+  --surface:   #1e2a1e;
+  --surface2:  #243024;
+  --border:    #2a382a;
+  --border2:   #334433;
+  --text:      #e8f0e8;
+  --text2:     #9ab09a;
+  --text3:     #5a745a;
+  --accent:    #4ade80;
+  --accent2:   #22c55e;
+  --accent-bg: #0f2a1a;
+  --red:       #f87171;
+  --red-bg:    #2a0f0f;
+  --amber:     #fbbf24;
+  --amber-bg:  #2a1f0a;
+  --blue:      #60a5fa;
+  --blue-bg:   #0f1a2a;
+  --font-display: 'Syne', sans-serif;
+  --font-body:    'DM Sans', sans-serif;
+  --radius:    8px;
+  --radius-lg: 12px;
+  --shadow:    0 4px 24px rgba(0,0,0,0.4);
+}
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg2); }
+::-webkit-scrollbar-thumb { background: var(--border2); border-radius: 3px; }
+
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; font-family: var(--font-body); }
+input, select, textarea {
+  font-family: var(--font-body);
+  font-size: 14px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  outline: none;
+  transition: border-color 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  border-color: var(--accent);
+}
+input::placeholder { color: var(--text3); }
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.4; }
+}
+.animate-in { animation: fadeIn 0.3s ease forwards; }
+.skeleton {
+  background: linear-gradient(90deg, var(--surface) 25%, var(--surface2) 50%, var(--surface) 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: var(--radius);
+}
+@keyframes shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
