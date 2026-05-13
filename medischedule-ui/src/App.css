@@ -272,10 +272,11 @@ tr:hover td { background: var(--surface); }
   inset: 0;
   background: rgba(0,0,0,0.7);
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   z-index: 100;
   padding: 24px;
+  overflow-y: auto;
 }
 .modal {
   background: var(--bg2);
@@ -284,9 +285,8 @@ tr:hover td { background: var(--surface); }
   padding: 28px;
   width: 100%;
   max-width: 520px;
-  max-height: 85vh;
-  overflow-y: auto;
   animation: fadeIn 0.2s ease;
+  flex-shrink: 0;
 }
 .modal-title {
   font-family: var(--font-display);

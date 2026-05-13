@@ -167,7 +167,10 @@ export default function Doctors() {
                             border: `1px solid ${s.is_available ? 'var(--border2)' : 'var(--border)'}`,
                           }}
                         >
-                          {format(new Date(s.slot_start), 'h:mm a')}
+                          {s.slot_start.slice(11, 16).replace(/^(\d+):(\d+)$/, (_, h, m) => {
+                            const h12 = +h % 12 || 12
+                            return `${h12}:${m} ${+h < 12 ? 'AM' : 'PM'}`
+                          })}
                         </span>
                       ))}
                     </div>
